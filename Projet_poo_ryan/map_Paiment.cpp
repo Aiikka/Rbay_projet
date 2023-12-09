@@ -7,10 +7,15 @@ NS_Composants::map_Paiment::map_Paiment()
 	this->date_paiement = "RIEN";
 	this->moyen_paiement = "RIEN";
 }
+String^ NS_Composants::map_Paiment::SELECT()
+{
+	return "SELECT Id_paiment , date_paiment , moyen_paiment FROM TB_Paiement ";
+}
 String^ NS_Composants::map_Paiment::SELECTbyId_commande()
 {
-	return "SELECT id_paiement , date_paiement , moyen_paiement FROM TB_Paiement " + "WHERE(id_commande = " + this + id_commande; ");";
+	return "SELECT date_paiment , moyen_paiment FROM TB_Paiement " + " WHERE(Id_Commande = " + this->id_commande +");";
 }
+
 String^ NS_Composants::map_Paiment::UPDATE()
 {
 	return "UPDATE TB_Paiement" + "SET date_paiement=" + this->date_paiement + ",moyen_paiement=" + this->moyen_paiement + ""
@@ -22,7 +27,7 @@ String^ NS_Composants::map_Paiment::DELETE()
 }
 String^ NS_Composants::map_Paiment::INSERT()
 {
-	return "INSERT INTO TB_Paiement(date_paiement,moyen_paiement)" + "VALUES('" + this->date_paiement + "','" + this->moyen_paiement + ");";
+	return "INSERT INTO TB_Paiement(date_paiment,moyen_paiment,Id_Commande)" + "VALUES('" + this->date_paiement + "','" + this->moyen_paiement +"','"+this->id_commande + "'); ";
 }
 int NS_Composants::map_Paiment::getId_paiement()
 {

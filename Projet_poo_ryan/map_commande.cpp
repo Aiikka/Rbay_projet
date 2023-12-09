@@ -16,7 +16,7 @@ NS_Composants::map_Commande::map_Commande()
 String^ NS_Composants::map_Commande::SELECT()
 {
 
-    return "SELECT id_commande, date_commande, nom_commande, id_adresse, id_client, id_personnel " +
+    return "SELECT Id_Commande, Nom_Commande, Date_emi , date_liv, Id_Client, Id_Personnel " +
 
         "FROM TB_Commande ";
 }
@@ -67,9 +67,9 @@ String^ NS_Composants::map_Commande::DELETE()
 String^ NS_Composants::map_Commande::INSERT()
 {
 
-    return "INSERT INTO TB_Commande(nom_commande,date_commande) " +
+    return "INSERT INTO TB_Commande(Nom_Commande,Date_emi,date_liv,Id_Client,Id_Personnel) " +
 
-        "VALUES('" + this->nom_commande + "', '" + this->date_commande+ ");";
+        "VALUES('" + this->nom_commande + "', '" + this->date_commande+ "', '" +this->date_liv + "', '" + this->id_client + "', '" + this->id_personnel + "'); ";
 }
 
 void NS_Composants::map_Commande::setId_Commande(int id_commande)

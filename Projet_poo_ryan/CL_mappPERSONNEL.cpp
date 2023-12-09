@@ -56,7 +56,12 @@ namespace NS_Composants
     String^ CL_mappPERSONNEL::ALTERTABLE(void)
     {
         return "ALTER TABLE TB_Personnel " + 
-            " DROP CONSTRAINT FK__Personnel__Id_Pe__37A5467C";
+            " DROP CONSTRAINT FK_Id_Personnel_1";
+    }
+
+    String^ CL_mappPERSONNEL::ENABLEKEY()
+    {
+        return " ALTER TABLE TB_Personnel ADD CONSTRAINT FK_id_personnel_1  FOREIGN KEY(id_personnel_1)  REFERENCES TB_Personnel(id_personnel); ";
     }
 
     String^ CL_mappPERSONNEL::INSERT(void)

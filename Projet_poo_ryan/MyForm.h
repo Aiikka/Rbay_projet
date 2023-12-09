@@ -86,13 +86,18 @@ namespace Projetpooryan {
 
 	private: System::Windows::Forms::Panel^ panel5;
 	private: System::Windows::Forms::Label^ label11;
-	private: System::Windows::Forms::TextBox^ textBox9;
+	private: System::Windows::Forms::TextBox^ text_IdCommande;
+
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label13;
-	private: System::Windows::Forms::TextBox^ textBox12;
-	private: System::Windows::Forms::TextBox^ textBox11;
+	private: System::Windows::Forms::TextBox^ text_dateLivraison;
+
+	private: System::Windows::Forms::TextBox^ text_dateCommande;
+
+
 	private: System::Windows::Forms::Label^ label12;
-	private: System::Windows::Forms::TextBox^ textBox10;
+	private: System::Windows::Forms::TextBox^ text_RefCommande;
+
 	private: System::Windows::Forms::Button^ button11;
 	private: System::Windows::Forms::Button^ button6;
 	private: System::Windows::Forms::Button^ button10;
@@ -148,7 +153,7 @@ private: System::Windows::Forms::Button^ suivant_client;
 	private: NS_SVC::CL_svc_gestionARTICLE^ gestionStock;
 							 //gestion stat apres
 	private: DataSet^ dsPersonne;
-
+private: DataSet^ dsCommande;
 	private: DataSet^ dsPersonneAdresses;
 	private:    String^ sup;
 
@@ -165,6 +170,13 @@ private: System::Windows::Forms::Button^ suivant_client;
 private: System::Windows::Forms::Label^ label18;
 private: System::Windows::Forms::TextBox^ text_personnel_sup;
 private: System::Windows::Forms::DataGridView^ dataGridView5;
+private: System::Windows::Forms::DataGridView^ dataGridView6;
+private: System::Windows::Forms::Label^ label19;
+private: System::Windows::Forms::TextBox^ text_cmdPerso;
+
+private: System::Windows::Forms::TextBox^ text_idcmdClient;
+
+private: System::Windows::Forms::Label^ label20;
 
 
 
@@ -244,6 +256,11 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->text_client_id = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panel5 = (gcnew System::Windows::Forms::Panel());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->text_cmdPerso = (gcnew System::Windows::Forms::TextBox());
+			this->text_idcmdClient = (gcnew System::Windows::Forms::TextBox());
+			this->dataGridView6 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->button12 = (gcnew System::Windows::Forms::Button());
@@ -254,12 +271,12 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
+			this->text_dateLivraison = (gcnew System::Windows::Forms::TextBox());
+			this->text_dateCommande = (gcnew System::Windows::Forms::TextBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->textBox10 = (gcnew System::Windows::Forms::TextBox());
+			this->text_RefCommande = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->text_IdCommande = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->panel6 = (gcnew System::Windows::Forms::Panel());
 			this->dataGridView4 = (gcnew System::Windows::Forms::DataGridView());
@@ -283,6 +300,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			this->panel5->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
 			this->panel6->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView4))->BeginInit();
@@ -796,6 +814,11 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			// 
 			// panel5
 			// 
+			this->panel5->Controls->Add(this->label20);
+			this->panel5->Controls->Add(this->label19);
+			this->panel5->Controls->Add(this->text_cmdPerso);
+			this->panel5->Controls->Add(this->text_idcmdClient);
+			this->panel5->Controls->Add(this->dataGridView6);
 			this->panel5->Controls->Add(this->dataGridView3);
 			this->panel5->Controls->Add(this->button13);
 			this->panel5->Controls->Add(this->button12);
@@ -806,26 +829,68 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->panel5->Controls->Add(this->button8);
 			this->panel5->Controls->Add(this->button7);
 			this->panel5->Controls->Add(this->label13);
-			this->panel5->Controls->Add(this->textBox12);
-			this->panel5->Controls->Add(this->textBox11);
+			this->panel5->Controls->Add(this->text_dateLivraison);
+			this->panel5->Controls->Add(this->text_dateCommande);
 			this->panel5->Controls->Add(this->label12);
-			this->panel5->Controls->Add(this->textBox10);
+			this->panel5->Controls->Add(this->text_RefCommande);
 			this->panel5->Controls->Add(this->label11);
-			this->panel5->Controls->Add(this->textBox9);
+			this->panel5->Controls->Add(this->text_IdCommande);
 			this->panel5->Controls->Add(this->label10);
 			this->panel5->Location = System::Drawing::Point(8, 57);
 			this->panel5->Name = L"panel5";
 			this->panel5->Size = System::Drawing::Size(949, 446);
 			this->panel5->TabIndex = 7;
 			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(34, 253);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(86, 16);
+			this->label20->TabIndex = 22;
+			this->label20->Text = L"Id_Personnel";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Location = System::Drawing::Point(34, 209);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(58, 16);
+			this->label19->TabIndex = 21;
+			this->label19->Text = L"Id_Client";
+			// 
+			// text_cmdPerso
+			// 
+			this->text_cmdPerso->Location = System::Drawing::Point(28, 271);
+			this->text_cmdPerso->Name = L"text_cmdPerso";
+			this->text_cmdPerso->Size = System::Drawing::Size(204, 22);
+			this->text_cmdPerso->TabIndex = 20;
+			// 
+			// text_idcmdClient
+			// 
+			this->text_idcmdClient->Location = System::Drawing::Point(28, 228);
+			this->text_idcmdClient->Name = L"text_idcmdClient";
+			this->text_idcmdClient->Size = System::Drawing::Size(204, 22);
+			this->text_idcmdClient->TabIndex = 19;
+			// 
+			// dataGridView6
+			// 
+			this->dataGridView6->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView6->Location = System::Drawing::Point(347, 231);
+			this->dataGridView6->Name = L"dataGridView6";
+			this->dataGridView6->RowHeadersWidth = 51;
+			this->dataGridView6->RowTemplate->Height = 24;
+			this->dataGridView6->Size = System::Drawing::Size(583, 203);
+			this->dataGridView6->TabIndex = 18;
+			// 
 			// dataGridView3
 			// 
 			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView3->Location = System::Drawing::Point(266, 22);
+			this->dataGridView3->Location = System::Drawing::Point(347, 19);
 			this->dataGridView3->Name = L"dataGridView3";
 			this->dataGridView3->RowHeadersWidth = 51;
 			this->dataGridView3->RowTemplate->Height = 24;
-			this->dataGridView3->Size = System::Drawing::Size(664, 338);
+			this->dataGridView3->Size = System::Drawing::Size(583, 203);
 			this->dataGridView3->TabIndex = 17;
 			// 
 			// button13
@@ -872,6 +937,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->button10->TabIndex = 12;
 			this->button10->Text = L"Afficher";
 			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
 			// button9
 			// 
@@ -899,66 +965,67 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->button7->TabIndex = 9;
 			this->button7->Text = L"Ajouter";
 			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(29, 252);
+			this->label13->Location = System::Drawing::Point(29, 159);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(95, 16);
 			this->label13->TabIndex = 7;
 			this->label13->Text = L"date_Livraison";
 			// 
-			// textBox12
+			// text_dateLivraison
 			// 
-			this->textBox12->Location = System::Drawing::Point(28, 271);
-			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(204, 22);
-			this->textBox12->TabIndex = 6;
+			this->text_dateLivraison->Location = System::Drawing::Point(28, 183);
+			this->text_dateLivraison->Name = L"text_dateLivraison";
+			this->text_dateLivraison->Size = System::Drawing::Size(204, 22);
+			this->text_dateLivraison->TabIndex = 6;
 			// 
-			// textBox11
+			// text_dateCommande
 			// 
-			this->textBox11->Location = System::Drawing::Point(28, 211);
-			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(204, 22);
-			this->textBox11->TabIndex = 5;
+			this->text_dateCommande->Location = System::Drawing::Point(28, 134);
+			this->text_dateCommande->Name = L"text_dateCommande";
+			this->text_dateCommande->Size = System::Drawing::Size(204, 22);
+			this->text_dateCommande->TabIndex = 5;
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(25, 179);
+			this->label12->Location = System::Drawing::Point(29, 110);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(111, 16);
 			this->label12->TabIndex = 4;
 			this->label12->Text = L"date_Commande";
 			// 
-			// textBox10
+			// text_RefCommande
 			// 
-			this->textBox10->Location = System::Drawing::Point(28, 138);
-			this->textBox10->Name = L"textBox10";
-			this->textBox10->Size = System::Drawing::Size(204, 22);
-			this->textBox10->TabIndex = 3;
+			this->text_RefCommande->Location = System::Drawing::Point(28, 85);
+			this->text_RefCommande->Name = L"text_RefCommande";
+			this->text_RefCommande->Size = System::Drawing::Size(204, 22);
+			this->text_RefCommande->TabIndex = 3;
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(25, 110);
+			this->label11->Location = System::Drawing::Point(29, 63);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(99, 16);
 			this->label11->TabIndex = 2;
 			this->label11->Text = L"NomReference";
 			// 
-			// textBox9
+			// text_IdCommande
 			// 
-			this->textBox9->Location = System::Drawing::Point(28, 56);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(204, 22);
-			this->textBox9->TabIndex = 1;
+			this->text_IdCommande->Location = System::Drawing::Point(28, 38);
+			this->text_IdCommande->Name = L"text_IdCommande";
+			this->text_IdCommande->Size = System::Drawing::Size(204, 22);
+			this->text_IdCommande->TabIndex = 1;
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(29, 37);
+			this->label10->Location = System::Drawing::Point(29, 19);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(93, 16);
 			this->label10->TabIndex = 0;
@@ -1127,7 +1194,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->panel5);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
@@ -1141,6 +1208,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			this->panel5->ResumeLayout(false);
 			this->panel5->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView6))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
 			this->panel6->ResumeLayout(false);
 			this->panel6->PerformLayout();
@@ -1166,7 +1234,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView5;
 
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
-		this->Controls->Add(this->panel5);
+		//this->Controls->Add(this->panel5);
 
 		this->panel1->Hide();
 		this->panel3->Hide();
@@ -1251,16 +1319,12 @@ private: System::Void button27_Click(System::Object^ sender, System::EventArgs^ 
 	else if (mode == "Supprimer_Perso") {
 		this->gestionPersonnel->supprimer(Convert::ToInt32(this->text_id->Text));
 	}
-	
-	
-
 
 		this->dataGridView1->Refresh();
 		this->dsPersonne = this->gestionPersonnel->listePersonnels("LesPersonnel");
 		this->dataGridView1->DataSource = this->dsPersonne;
 		this->dataGridView1->DataMember = "LesPersonnel";
 	
-
 	}
 
 		  private: void initialisationPersonnel(void)
@@ -1357,10 +1421,8 @@ private: System::Void button27_Click(System::Object^ sender, System::EventArgs^ 
 			   this->dataGridView2->DataMember = "AdressesPersonnes";
 
 
-
-			   
-
 		   }
+
 private: System::Void button35_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	if (this->mode == "nouveauclient") {
@@ -1428,7 +1490,8 @@ private: System::Void button35_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	//this->initialisationENR();
-	this->initialisationPersonnel();
+	//this->initialisationPersonnel();
+	this->initialisationCommande();
 }
 private: System::Void button34_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1487,6 +1550,7 @@ private: System::Void button26_Click(System::Object^ sender, System::EventArgs^ 
 
 	{
 
+		 
 		this->index++;
 
 		this->text_id->Text = Convert::ToString(this->dsPersonnel->Tables["LesPersonnel"]->Rows[this->index]->ItemArray[0]);
@@ -1513,7 +1577,134 @@ private: System::Void button23_Click(System::Object^ sender, System::EventArgs^ 
 }
 
 
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->text_IdCommande->Text = "";
+	this->text_RefCommande->Text = "";
+	this->text_dateCommande->Text = "";
+	this->text_dateLivraison->Text = "";
+	this->text_idcmdClient->Text = "";
+	this->text_cmdPerso->Text = "";
+
+	this->dataGridView3->DataSource = nullptr;
+	this->dataGridView3->Columns->Add("date_paiment","date_paiment");
+	this->dataGridView3->Columns->Add("moyen_paiment", "moyen_paiment");
+
+	this->dataGridView6->DataSource = nullptr;
+
+	this->dataGridView6->Columns->Add("Id_Article", "Id_Article");
+	this->dataGridView6->Columns->Add("Prix_Article", "Prix_Article");
+	this->dataGridView6->Columns->Add("Quantite_article", "Quantite_article");
+	this->dataGridView6->Columns->Add("Remise_commerciale", "Remise_commerciale");
+
+	this->mode = "AjtCmd";
+
+
+
+
+
+}
+private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (mode = "AjtCmd") {
+
+		int i;
+
+		int ii;
+
+
+
+		int taille = (this->dataGridView3->RowCount - 1) * 2;
+
+		int taillen = (this->dataGridView6->RowCount - 1) * 4;
+
+
+
+		array<String^>^ lesPaiement = gcnew array<String^>(taille);
+
+		array<String^>^  lesArticleCmd= gcnew array<String^>(taillen);
+
+
+
+		ii = 0;
+
+		for (i = 0; i < taille - 1; i++)
+
+		{
+
+			lesPaiement[i] = Convert::ToString(this->dataGridView3[0, ii]->Value); i++;
+
+			lesPaiement[i] = Convert::ToString(this->dataGridView3[1, ii]->Value); 
+			ii++;
+
+		}
+
+		for (i = 0; i < taillen - 1; i++)
+
+		{
+
+			lesArticleCmd[i] = Convert::ToString(this->dataGridView6[0, ii]->Value); i++;
+
+			lesArticleCmd[i] = Convert::ToString(this->dataGridView6[1, ii]->Value); i++;
+
+			lesArticleCmd[i] = Convert::ToString(this->dataGridView6[3, ii]->Value); i++;
+
+			//lesArticleCmd[i] = Convert::ToString(this->dataGridView6[4, ii]->Value);
+			ii++;
+		}
+
+		this->gestionCommande->ajouter(this->text_RefCommande->Text,this->text_dateCommande->Text, this->text_dateLivraison->Text, Convert::ToInt32(this->text_idcmdClient->Text), Convert::ToInt32(this->text_cmdPerso->Text), lesPaiement, lesArticleCmd);
+
+	}
+}
+
+	   private: void initialisationCommande(void)
+
+	   {
+
+		   this->gestionCommande = gcnew NS_SVC::CL_svc_gestionCOMMANDE();
+
+		   this->dataGridView3->Columns->Clear();
+
+		   this->dataGridView6->Columns->Clear();
+
+
+
+		   this->dsPersonne = this->gestionCommande->listeCommande("LesCommandes");
+
+		   this->rowsCount = this->dsPersonne->Tables["LesCommandes"]->Rows->Count;
+
+		   this->index = 0;
+
+		   this->text_IdCommande->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[0]);
+
+		   this->text_RefCommande->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[1]);
+
+		   this->text_dateCommande->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[2]);
+
+		   this->text_dateLivraison->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[3]);
+
+		   this->text_idcmdClient->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[4]);
+
+		   this->text_cmdPerso->Text = Convert::ToString(this->dsPersonne->Tables["LesCommandes"]->Rows[0]->ItemArray[5]);
+
+		   this->dsPersonneAdresses = this->gestionCommande->listeCommandePaiement(Convert::ToInt32(this->text_IdCommande->Text), "LesCommandes");
+		   
+		   this->dataGridView3->DataSource = this->dsPersonneAdresses;
+
+		   this->dataGridView3->DataMember = "LesCommandes";
+
+		   this->dsPersonneAdresses = this->gestionCommande->listeCommandeArticle(/*Convert::ToInt32(this->dataGridView6[0, 0]->Value)*/ Convert::ToInt32(this->text_IdCommande->Text), "LesCommandes");
+		   this->dataGridView6->DataSource= this->dsPersonneAdresses;
+		   this->dataGridView6->DataMember = "LesCommandes";
+
+		   //this->dsCommande = this->gestionCommande->listeCommandeNomArtc(Convert::ToInt32(this->dataGridView6[0, 0]->Value), "LesCommandes");
+		   //this->dataGridView6->Columns->Add(dsCommande);
+		   /*this->dsCommande = this->gestionCommande->listeCommandeNomArtc(Convert::ToInt32(this->dataGridView6[0, 0]->Value), "LesCommandes");
+		   this->dataGridView6->DataSource = this->dsCommande;
+		   this->dataGridView6->DataMember = "LesCommandes";*/
+
+	   }
 };
+
 
 	}
 	

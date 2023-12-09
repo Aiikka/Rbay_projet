@@ -75,8 +75,6 @@ namespace NS_SVC
 
         id = this->cad->actionRowsID(this->personne->INSERT());
 
-
-
         
 
     }
@@ -108,6 +106,7 @@ namespace NS_SVC
         this->personne->setid_personnel(idPersonne);
         this->cad->actionRows(this->personne->ALTERTABLE());
         this->cad->actionRows(this->personne->DELETE());
+        this->cad->actionRows(this->personne->ENABLEKEY());
 
     }
 

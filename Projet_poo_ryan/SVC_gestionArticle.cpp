@@ -31,10 +31,10 @@ namespace NS_SVC
     void CL_svc_gestionARTICLE::ajouter(String^ nomarticle, int prix, String^, int reap_article)
     {
         int id;
-        int i;
+        
 
         this->article->setnom_article(nomarticle);
- /*       this->client->setPrenom(prenom);
+      /*       this->client->setPrenom(prenom);
         this->client->setdate_nais(date_nais);*/
 
 
@@ -48,7 +48,7 @@ namespace NS_SVC
     void CL_svc_gestionARTICLE::CL_svc_gestionARTICLE::modifier(int id_article, String^ nomarticle, int prix, String^, int reap_article)
     {
 
-        int i;
+  
         this->article->setIdArticle(id_article);
         this->CAD->actionRows(this->article->UPDATE());
 

@@ -5,10 +5,10 @@ namespace NS_Composants {
 	{
 	private:
 		int id_commande;
-		int id_article;
-		int quantite_article;
-		float prix;
-		float remise_commerciale;
+		String^ id_article;
+		String^ quantite_article;
+		String^ prix;
+	     String^ remise_commerciale;
 
 	public:
 		Contenir();
@@ -18,16 +18,16 @@ namespace NS_Composants {
 		String^ UPDATE();
 		String^ DELETE();
 		String^ INSERT();
-		void setId_article(int);
+		void setId_article(String^);
 		void setId_commande(int);
-		void setQuantite(int);
-		void setPrix(float);
-		void setRemise_commerciale(float);
+		void setQuantite(String^);
+		void setPrix(String^);
+		void setRemise_commerciale(String^);
 		int getId_commande();
-		int getId_article();
-		int getQuantite();
-		float getPrix();
-		float getRemise_commerciale();
+		String^ getId_article();
+		String^ getQuantite();
+		String^ getPrix();
+		String^ getRemise_commerciale();
 
 	};
 }

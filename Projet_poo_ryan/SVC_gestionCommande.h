@@ -44,14 +44,16 @@ namespace NS_SVC
         CL_svc_gestionCOMMANDE(void);
 
         DataSet^ listeCommande(String^);
-
+        DataSet^ listeCommandePaiement(int, String^);
+        DataSet^ listeCommandeArticle(/*int,*/ int, String^);
+        DataSet^ listeCommandeNomArtc(String^, String^);
         DataSet^ listeCommandeById_Client(String^);
 
         DataSet^ listeCommandeById_Personnel(String^);
 
         DataSet^ listeCommandeById_adresse(String^);
 
-        void ajouter(String^ date, array<String^>^ paiement, array<String^>^ article, float remise, int quantite, float prix);
+        void ajouter(String^ ref, String^ date_cmd, String^ date_liv, int, int, array<String^>^ paiement, array<String^>^ contenir/*, array<String^>^ remise, array<String^>^ quantite, array<String^>^ prix*/);
 
         void modifier(int id_personne, String^ date, array<String^>^ paiement, array<String^>^ article, float remise, int quantite, float prix);
 

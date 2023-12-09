@@ -36,6 +36,7 @@ namespace NS_Composants
 
         String^ SELECTBYIDPERSONNEL(void);
         String^ ALTERTABLE(void);
+        String^ ENABLEKEY();
 
         String^ INSERT(void);
 

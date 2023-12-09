@@ -11,6 +11,7 @@ namespace NS_Composants {
 		String^ moyen_paiement;
 	public:
 		map_Paiment();
+		String^ SELECT();
 		String^ SELECTbyId_commande();
 		String^ UPDATE();
 		String^ DELETE();

@@ -17,7 +17,6 @@ namespace NS_Composants
 
         this->nom_article = "RIEN";
 
-        this->design_article = "RIEN";
 
         this->reap_article = 0;
 
@@ -28,7 +27,7 @@ namespace NS_Composants
 
     {
 
-        return "SELECT id_article, nom_article, design_article, reap_article, id_taux_tva " +
+        return "SELECT id_article, nom_article , Reaprovisionnement_Articile, id_taux_tva " +
 
             "FROM TB_Article "  ;
 
@@ -38,12 +37,21 @@ namespace NS_Composants
 
     {
 
-        return "SELECT id_article, nom_article, design_article, reap_article  " +
+        return "SELECT id_article, nom_article, design_article, Reaprovisionnement_Articile  " +
 
             "FROM TB_Article " +
 
             "WHERE(id_taux_tva = " + this->id_taux_tva + ");";
 
+    }
+
+    String^ CL_mappARTICLE::SELECTNom()
+    {
+        return "SELECT nom_article  " +
+
+            "FROM TB_Article " +
+
+            "WHERE(id_taux_tva = " + this->id_article + ");";
     }
 
     String^ CL_mappARTICLE::INSERT(void)
@@ -52,7 +60,7 @@ namespace NS_Composants
 
         return "INSERT INTO TB_Article(nom_article, design_article, reap_article, id_taux_tva) " +
 
-            "VALUES('" + this->nom_article + "', '" + this->design_article + "', '" + this->reap_article + "', " + this->id_taux_tva + ");";
+            "VALUES('" + this->nom_article  + "', '" + this->reap_article + "', " + this->id_taux_tva + ");";
 
     }
 
@@ -62,7 +70,7 @@ namespace NS_Composants
 
         return "UPDATE TB_Article " +
 
-            "SET nom_article ='" + this->nom_article + "', design_article ='" + this->design_article + "', reap_article ='" + this->reap_article + "' " +
+            "SET nom_article ='" + this->nom_article +  "', reap_article ='" + this->reap_article + "' " +
 
             "WHERE(id_article =  " + this->id_article + "); ";
 
@@ -95,13 +103,7 @@ namespace NS_Composants
     }
 
 
-    void CL_mappARTICLE::setdesign_article(String^ design)
 
-    {
-
-        if (design != "")this->design_article = design;
-
-    }
 
 
     void CL_mappARTICLE::setreap_article(int reap)
@@ -139,13 +141,7 @@ namespace NS_Composants
     }
 
 
-    String^ CL_mappARTICLE::getdesign_article(void)
-
-    {
-
-        return this->design_article;
-
-    }
+   
 
     int CL_mappARTICLE::getreap_article(void)
 

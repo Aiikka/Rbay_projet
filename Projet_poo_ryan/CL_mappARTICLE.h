@@ -18,7 +18,7 @@ namespace NS_Composants
 
         String^ nom_article;
 
-        String^ design_article;
+ 
 
         int reap_article;
 
@@ -31,6 +31,7 @@ namespace NS_Composants
         String^ SELECT(void);
 
         String^ SELECTbyIDTAUX(void);
+        String^ SELECTNom();
 
         String^ INSERT(void);
 
@@ -43,7 +44,7 @@ namespace NS_Composants
 
         void setnom_article(String^);
 
-        void setdesign_article(String^);
+   
 
         void setreap_article(int);
 
@@ -55,7 +56,7 @@ namespace NS_Composants
         String^ getnom_article(void);
 
 
-        String^ getdesign_article(void);
+      
 
         int getreap_article(void);
 
